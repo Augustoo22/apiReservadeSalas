@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f5f5; /* verde claro para o fundo */
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e0f2e9; /* verde claro para o container */
+    border-radius: 16px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #00755e; /* verde escuro para o título */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #005f4e; /* verde escuro para os títulos das seções */
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 12px 24px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #00755e; /* verde escuro para os botões */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #005f4e; /* verde mais escuro ao passar o mouse nos botões */
+}
+
+input[type="text"] {
+    padding: 12px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.sala-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #e0f2e9; /* verde claro para os itens de sala */
+    border-radius: 8px;
+}
+
+.sala-item h3 {
+    margin-top: 0;
+    color: #005f4e; /* verde escuro para os títulos dos itens de sala */
+}
+
+#detalhes {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #e0f2e9; /* verde claro para os detalhes */
+    border-radius: 8px;
+}
