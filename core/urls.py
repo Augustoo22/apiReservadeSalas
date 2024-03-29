@@ -1,5 +1,5 @@
 from django.urls import path
-from salaDeAula.views.postview import CriarSalaDeAula
+from salaDeAula.views.postView import CriarSalaDeAula
 from salaDeAula.views.getView import ListaSalasDeAula, DetalhesSalaDeAula, ListaHorariosDisponiveis
 
 urlpatterns = [
