@@ -1,10 +1,16 @@
 from django.urls import path
-from salaDeAula.views.postView import CriarSalaDeAula
-from salaDeAula.views.getView import ListaSalasDeAula, DetalhesSalaDeAula, ListaHorariosDisponiveis
+from salaDeAula.views.postView import CriarSala, ReservarSala
+from salaDeAula.views.getView import ListarSalas, DetalhesSala, ListarHorarios
+from salaDeAula.views.putView import AtualizarSala
+from salaDeAula.views.deleteView import ExcluirSala, CancelarReserva
 
 urlpatterns = [
-    path('salas/', ListaSalasDeAula.as_view(), name='lista-salas'),
-    path('salas/<int:id>/', DetalhesSalaDeAula.as_view(), name='detalhes-sala'),
-    path('salas/<int:id>/horarios/', ListaHorariosDisponiveis.as_view(), name='lista-horarios'),
-    path('salas/criar/', CriarSalaDeAula.as_view(), name='criar_sala_de_aula'),
+    path('salas/', ListarSalas.as_view()),
+    path('salas/<int:id>/', DetalhesSala.as_view()),
+    path('salas/criar/', CriarSala.as_view()),
+    path('salas/<int:id>/atualizar/', AtualizarSala.as_view()),
+    path('salas/<int:id>/excluir/', ExcluirSala.as_view()),
+    path('salas/<int:id>/horarios/', ListarHorarios.as_view()),
+    path('salas/<int:id>/reservar/', ReservarSala.as_view()),
+    path('reservas/<int:id>/cancelar/', CancelarReserva.as_view()),
 ]
