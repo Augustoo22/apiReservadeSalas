@@ -1,19 +1,32 @@
-from rest_framework import generics
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from ..models import SalaDeAula, Horario
 from ..serializers import SalaDeAulaSerializer, HorarioSerializer
 
-class ListaSalasDeAula(generics.ListAPIView):
-    queryset = SalaDeAula.objects.all()
-    serializer_class = SalaDeAulaSerializer
+class ListaSalasDeAula(APIView):
+    def get(self, request):
+        salas = SalaDeAula.objects.all()
+        serializer = SalaDeAulaSerializer(salas, many=True)
+        return Response(serializer.data)
 
-class DetalhesSalaDeAula(generics.RetrieveAPIView):
-    queryset = SalaDeAula.objects.all()
-    serializer_class = SalaDeAulaSerializer
-    lookup_field = 'id'
+class DetalhesSalaDeAula(APIView):
+    def get(self, request, id):
+        try:
+            sala = SalaDeAula.objects.get(id=id)
+        except SalaDeAula.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
-class ListaHorariosDisponiveis(generics.ListAPIView):
-    serializer_class = HorarioSerializer
+        serializer = SalaDeAulaSerializer(sala)
+        return Response(serializer.data)
 
-    def get_queryset(self):
-        sala_id = self.kwargs['id']
-        return Horario.objects.filter(sala_id=sala_id)
+class ListaHorariosDisponiveis(APIView):
+    def get(self, request, id):
+        try:
+            sala = SalaDeAula.objects.get(id=id)
+        except SalaDeAula.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        horarios = Horario.objects.filter(sala=sala)
+        serializer = HorarioSerializer(horarios, many=True)
+        return Response(serializer.data)
