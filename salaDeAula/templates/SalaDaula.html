@@ -1,26 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API de Salas de Aula</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Listagem de Salas de Aula</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f0f0f0;
+            text-align: left;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>API de Salas de Aula</h1>
-        <div id="listar-salas" class="card">
-            <h2>Listar Salas de Aula</h2>
-            <button onclick="listarSalas()">Listar Salas</button>
-            <ul id="salas-lista"></ul>
-        </div>
-        <div id="detalhes-sala" class="card hidden">
-            <h2>Detalhes da Sala</h2>
-            <input type="text" id="sala-id" placeholder="ID da Sala">
-            <button onclick="detalhesSala()">Buscar Detalhes</button>
-            <div id="detalhes"></div>
-        </div>
+        <h1>Lista de Salas de Aula</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Capacidade</th>
+                    <th>Localização</th>
+                    <th>Descrição</th>
+                    <th>Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sala in salas %}
+                <tr>
+                    <td>{{ sala.nome }}</td>
+                    <td>{{ sala.capacidade }}</td>
+                    <td>{{ sala.localizacao }}</td>
+                    <td>{{ sala.descricao }}</td>
+                    <td>{{ sala.horario }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-    <script src="scripts.js"></script>
 </body>
 </html>
